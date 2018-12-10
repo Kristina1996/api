@@ -33,31 +33,21 @@
 			return $stmt;
 		}
 		
-		// read users with pagination
+		// с подгрузкой
 		public function readPaging($from_record_num, $records_per_page) {
 		 
-			// select query
 			$query = "SELECT
 						p.id, p.name, p.surname, p.age, p.address, p.position, p.salary, p.inn
 					FROM
 						" . $this->table_name . " p
 					LIMIT ?, ?";
-		 
-			// prepare query statement
+		
 			$stmt = $this->conn->prepare( $query );
-		 
 			$test = 1;
 			
-			// bind variable values
-			//$stmt->bindParam(1, $from_record_num, PDO::PARAM_INT);
 			$stmt->bindParam(1, $test, PDO::PARAM_INT);
 			$stmt->bindParam(2, $from_record_num, PDO::PARAM_INT);
-			//$stmt->bindParam(2, $records_per_page, PDO::PARAM_INT);
-		 
-			// execute query
 			$stmt->execute();
-		 
-			// return values from database
 			return $stmt;
 		}
 		

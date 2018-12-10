@@ -3,19 +3,12 @@
 	 
 		public function getPaging($page, $total_rows, $records_per_page, $page_url) {
 	 
-			// paging array
 			$paging_arr = array();
-	 
-			// button for first page
 			$paging_arr["first"] = $page>1 ? "{$page_url}page=1" : "";
 	 
-			// count all users in the database to calculate total pages
 			$total_pages = ceil($total_rows / $records_per_page);
-	 
-			// range of links to show
 			$range = 10;
-	 
-			// display links to 'range of pages' around 'current page'
+	
 			$initial_num = $page - $range;
 			$condition_limit_num = ($page + $range)  + 1;
 	 
@@ -32,11 +25,8 @@
 					$page_count++;
 				}
 			}
-	 
-			// button for last page
+	
 			$paging_arr["last"] = $page<$total_pages ? "{$page_url}page={$total_pages}" : "";
-	 
-			// json format
 			return $paging_arr;
 		}
 	}
