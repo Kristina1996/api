@@ -10,6 +10,6 @@
 	// Количество записей на странице
 	$records_per_page = 10;
 	
-	//$from_record_num = ($records_per_page * $page) - $records_per_page;
-	$from_record_num = $records_per_page * $page;
+	$from_record_num = ($records_per_page * $page) - $records_per_page;
+	//$from_record_num = $records_per_page * $page;
 ?>

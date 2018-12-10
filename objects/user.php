@@ -45,8 +45,8 @@
 			$stmt = $this->conn->prepare( $query );
 			$test = 1;
 			
-			$stmt->bindParam(1, $test, PDO::PARAM_INT);
-			$stmt->bindParam(2, $from_record_num, PDO::PARAM_INT);
+			$stmt->bindParam(1, $from_record_num, PDO::PARAM_INT);
+			$stmt->bindParam(2, $records_per_page, PDO::PARAM_INT);
 			$stmt->execute();
 			return $stmt;
 		}

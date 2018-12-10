@@ -42,7 +42,7 @@
 		}
 	
 		$total_rows = $user -> count();
-		$page_url = "{$home_url}dao/getUserwithPage.php?";
+		$page_url = "{$home_url}dao/getUserswithPage.php?";
 		$paging = $utilities -> getPaging($page, $total_rows, $records_per_page, $page_url);
 		$users_arr["paging"] = $paging;
 	 
