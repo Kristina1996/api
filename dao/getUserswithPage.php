@@ -3,11 +3,8 @@
 	header("Content-Type: application/json; charset=UTF-8");
 	
 	include_once '../config/core.php';
-	include_once '../shared/utilities.php';
 	include_once '../config/database.php';
 	include_once '../objects/user.php';
-	
-	$utilities = new Utilities();
 	
 	$database = new Database();
 	$db = $database->getConnection();
@@ -20,11 +17,7 @@
 	
 		$users_arr = array();
 		$users_arr["records"] = array();
-		$users_arr["paging"] = array();
 	 
-		// retrieve our table contents
-		// fetch() is faster than fetchAll()
-		// http://stackoverflow.com/questions/2770630/pdofetchall-vs-pdofetch-in-a-loop
 		while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 			extract($row);
 	 
@@ -40,11 +33,6 @@
 			);
 			array_push($users_arr["records"], $user_item);
 		}
-	
-		$total_rows = $user -> count();
-		$page_url = "{$home_url}dao/getUserswithPage.php?";
-		$paging = $utilities -> getPaging($page, $total_rows, $records_per_page, $page_url);
-		$users_arr["paging"] = $paging;
 	 
 		http_response_code(200);
 		echo json_encode($users_arr);

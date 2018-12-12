@@ -43,23 +43,11 @@
 					LIMIT ?, ?";
 		
 			$stmt = $this->conn->prepare( $query );
-			$test = 1;
 			
 			$stmt->bindParam(1, $from_record_num, PDO::PARAM_INT);
 			$stmt->bindParam(2, $records_per_page, PDO::PARAM_INT);
 			$stmt->execute();
 			return $stmt;
-		}
-		
-		// used for paging products
-		public function count(){
-			$query = "SELECT COUNT(*) as total_rows FROM " . $this->table_name . "";
-		 
-			$stmt = $this->conn->prepare( $query );
-			$stmt->execute();
-			$row = $stmt->fetch(PDO::FETCH_ASSOC);
-		 
-			return $row['total_rows'];
 		}
 		
 		// Получение одного пользователя
