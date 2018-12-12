@@ -90,19 +90,6 @@
 			
 			$con = mysqli_connect($host, $username, $password, $db_name);
 			
-			/*$query = "UPDATE
-						" . $this->table_name . "
-					SET
-						name = :name,
-						surname = :surname,
-						age = :age,
-						address = :address,
-						position = :position,
-						salary = :salary,
-						inn = :inn
-					WHERE
-						id = :id";*/
-			
 			$query = "UPDATE users SET name='".$data->name."', surname='".$data->surname."',
 							position='".$data->position."',
 							age='".$data->age."',
@@ -113,34 +100,6 @@
 			} else { return false; }
 			
 			mysqli_close($con);
-			
-		 
-			// Подготовка запроса
-			/*$stmt = $this->conn->prepare($query);
-		 
-			// Дезинфекция
-			$this->name=htmlspecialchars(strip_tags($this->name));
-			$this->surname=htmlspecialchars(strip_tags($this->surname));
-			$this->age=htmlspecialchars(strip_tags($this->age));
-			$this->address=htmlspecialchars(strip_tags($this->address));
-			$this->position=htmlspecialchars(strip_tags($this->position));
-			$this->salary=htmlspecialchars(strip_tags($this->salary));
-			$this->inn=htmlspecialchars(strip_tags($this->inn));
-			$this->id=htmlspecialchars(strip_tags($this->id));
-		 
-			// Привязка новых значений
-			$stmt->bindParam(':name', $this->name);
-			$stmt->bindParam(':surname', $this->surname);
-			$stmt->bindParam(':age', $this->age);
-			$stmt->bindParam(':address', $this->address);
-			$stmt->bindParam(':position', $this->position);
-			$stmt->bindParam(':salary', $this->salary);
-			$stmt->bindParam(':inn', $this->inn);
-			$stmt->bindParam(':id', $this->id);
-		 
-			if ($stmt->execute()) {
-				return true;
-			} else { return false; }*/
 		}
 	}
 ?>
